@@ -1,39 +1,39 @@
-# 🧠 Escalonador de Processos — Python
+# 🧠 CPU Scheduler — Python
 
-## 📄 Descrição
+## 📄 Description
 
-Este projeto implementa um **escalonador de CPU** em Python, simulando três algoritmos clássicos de escalonamento de processos:
+This project implements a **CPU scheduling simulator** in Python, supporting three classic scheduling algorithms:
 
 - 🕐 **FCFS**: First-Come, First-Served
-- ⚡ **SJF**: Shortest Job First (não-preemptivo)
-- 🔄 **RR**: Round Robin (com quantum fixo = 2)
+- ⚡ **SJF**: Shortest Job First (non-preemptive)
+- 🔄 **RR**: Round Robin (with fixed quantum = 2)
 
-O programa **lê os processos a partir de um arquivo `input.txt`**, contendo pares `tempo_chegada tempo_duração`, e exibe as **médias de tempo de retorno, resposta e espera**, formatadas com uma casa decimal e separador decimal `,` (vírgula).
+The program **reads processes from an `input.txt` file**, containing pairs of `<arrival_time> <burst_time>`, and outputs the **average turnaround time, response time, and waiting time**, formatted with one decimal place and using a comma as the decimal separator.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 .
-├── input.txt            # Arquivo de entrada com os processos
-├── main.py              # Código-fonte principal do escalonador
-├── README.md            # Este arquivo
+├── input.txt            # Input file with process data
+├── main.py              # Main Python script with all logic
+├── README.md            # This file
 ```
 
 ---
 
-## ▶️ Como Executar
+## ▶️ How to Run
 
-### 1. 💾 Adicione os dados de entrada no arquivo `input.txt`
+### 1. 💾 Add input data to `input.txt`
 
-Cada linha deve conter **dois inteiros** separados por espaço:
+Each line must contain **two integers** separated by space:
 
 ```
-<tempo_de_chegada> <tempo_de_duracao>
+<arrival_time> <burst_time>
 ```
 
-Exemplo:
+Example:
 
 ```
 0 10
@@ -42,7 +42,7 @@ Exemplo:
 21 8
 ```
 
-### 2. ▶️ Execute o programa com Python 3
+### 2. ▶️ Run the script using Python 3
 
 ```bash
 python3 main.py
@@ -50,7 +50,7 @@ python3 main.py
 
 ---
 
-## 📤 Exemplo de Saída
+## 📤 Sample Output
 
 ```
 FCFS: 10,0 3,0 3,0
@@ -58,31 +58,31 @@ SJF: 10,0 3,0 3,0
 RR: 11,0 0,5 4,0
 ```
 
-Cada linha corresponde a um algoritmo, seguido das **médias** em ordem:
+Each line corresponds to one scheduling algorithm, followed by the **averages** in the following order:
 
-1. ⏱ Tempo de **retorno**
-2. 🎯 Tempo de **resposta**
-3. 🕓 Tempo de **espera**
-
----
-
-## ⚙️ Algoritmos Implementados
-
-- ✅ FCFS (ordena os processos pela chegada e executa sequencialmente)
-- ✅ SJF não-preemptivo (seleciona o processo com menor duração entre os disponíveis)
-- ✅ RR com quantum 2 (executa por fatias de tempo circulares)
-
-Todos os algoritmos computam as métricas conforme as definições:
-
-- **Tempo de retorno** = tempo de término − tempo de chegada
-- **Tempo de espera** = tempo de retorno − duração
-- **Tempo de resposta** = primeiro tempo de execução − chegada
+1. ⏱ **Turnaround time**
+2. 🎯 **Response time**
+3. 🕓 **Waiting time**
 
 ---
 
-## ⚠️ Observações
+## ⚙️ Implemented Algorithms
 
-- O arquivo `input.txt` deve estar no **mesmo diretório** do `main.py`.
-- Linhas inválidas na entrada serão **ignoradas automaticamente**.
-- O programa segue rigorosamente o **formato exigido** para avaliação automática.
-- Não são utilizados módulos externos — 100% Python puro.
+- ✅ FCFS: executes processes in order of arrival
+- ✅ SJF (non-preemptive): picks the shortest job available
+- ✅ RR with quantum = 2: executes time-sliced in round-robin order
+
+All algorithms compute the metrics as follows:
+
+- **Turnaround time** = completion time − arrival time
+- **Waiting time** = turnaround time − burst time
+- **Response time** = first execution time − arrival time
+
+---
+
+## ⚠️ Notes
+
+- The file `input.txt` must be in the **same directory** as `main.py`.
+- Invalid lines in the input are **ignored automatically**.
+- Output format is strictly followed to match automatic grading requirements.
+- No external libraries are used — fully written in pure Python.
