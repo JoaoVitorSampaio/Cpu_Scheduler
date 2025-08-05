@@ -1,3 +1,8 @@
+#This project implements three CPU scheduling algorithms:
+# 1. FCFS (First-Come, First-Served)
+# 2. SJF (Shortest Job First)
+# 3. RR (Round Robin)
+
 # Imports the 'sys' module to interact with the system, such as reading from standard input.
 import sys
 
